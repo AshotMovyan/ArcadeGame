@@ -8,6 +8,22 @@
 
 #include "ShootComponent.generated.h"
 
+USTRUCT(BlueprintType)
+struct FShootInfo
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Controls")
+		TSubclassOf<AShootProjectile> ProjectileClass;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Shooting")
+		FVector Offset;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Shooting")
+		float Angle;
+
+};
+
 
 UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class ARCADEGAME_API UShootComponent : public UActorComponent
@@ -37,6 +53,6 @@ public:
 		float DeltaShootTime;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Controls")
-		TSubclassOf<AShootProjectile> ProjectileClass;
+		TArray<FShootInfo> ShootInfos;
 
 };

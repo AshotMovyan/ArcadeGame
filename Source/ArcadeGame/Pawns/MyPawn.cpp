@@ -19,11 +19,12 @@ AMyPawn::AMyPawn()
 	SetRootComponent(PawnCollision);
 	
 	PawnMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("PawnMesh"));
-	PawnMesh->SetupAttachment(RootComponent);
+	PawnMesh->SetupAttachment(PawnCollision, NAME_None);
 
 	PawnCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("PawnCamera"));
 
 	ShootComponent = CreateDefaultSubobject<UShootComponent>(TEXT("ShootComponent"));
+
 }
 
 // Called when the game starts or when spawned

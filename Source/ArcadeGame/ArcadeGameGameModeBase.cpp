@@ -3,3 +3,7 @@
 
 #include "ArcadeGameGameModeBase.h"
 
+AArcadeGameGameModeBase::AArcadeGameGameModeBase()
+{
+	EnemySpawnController = CreateDefaultSubobject<UEnemySpawnController>(TEXT("EnemySpawnController"));
+}

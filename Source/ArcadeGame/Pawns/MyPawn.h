@@ -5,7 +5,6 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
 #include "Components/BoxComponent.h"
-#include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 #include "../Components/ShootComponent.h"
 
@@ -47,6 +46,9 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Shooting", meta = (AllowPrivateAccess = "true"))
+		UShootComponent* ShootComponent;
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Pawn")
 		UBoxComponent* PawnCollision;
 
@@ -55,9 +57,6 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Pawn")
 		UCameraComponent* PawnCamera;
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Shooting")
-		UShootComponent* ShootComponent;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Controls")
 		float TouchMoveSensivity;

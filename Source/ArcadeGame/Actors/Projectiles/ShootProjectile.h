@@ -7,6 +7,7 @@
 #include "Components/SphereComponent.h"
 
 #include "ShootProjectile.generated.h"
+		
 
 UCLASS()
 class ARCADEGAME_API AShootProjectile : public AActor
@@ -16,6 +17,9 @@ class ARCADEGAME_API AShootProjectile : public AActor
 public:	
 	// Sets default values for this actor's properties
 	AShootProjectile();
+
+	UFUNCTION()
+		void OnProjectileOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 BodyIndex, bool Sweep, const FHitResult& Hit);
 
 protected:
 	// Called when the game starts or when spawned
